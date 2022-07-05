@@ -1,0 +1,10 @@
+@mixin ball-btns-animated {
+  @keyframes ball-btns-animated {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(-14px);
+    }
+  }
+}
