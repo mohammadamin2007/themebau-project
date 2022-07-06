@@ -4,6 +4,10 @@ if(document.body.scrollTop >=  160) {
 } else{
     navbar.classList.remove("navbar-scrolled")
 }
+if(document.body.scrollTop <=  600) {
+    navbar.classList.remove("navbar-hide")
+    replace_navbar.classList.remove("navbar-hide")
+}
 // navbar - change - when - enter
 
 // hover navlink dropdown open
@@ -163,7 +167,6 @@ slider_body_project_case.addEventListener("mouseup", () => {
         }
     })
     index = distance_project_case.indexOf(min(distance_project_case))
-    console.log(pic_positions_project_case[index], distance_project_case)
     slider_body_project_case.style.transform = "translateX(" + pic_positions_project_case[index] + "px)" 
     transform_slider_project_case = pic_positions_project_case[index]
     slider_body_project_case.style.cursor = "grab"
@@ -203,7 +206,6 @@ slider_body_menu_style.addEventListener("mouseup", () => {
         }
     })
     index = distance_menu_style.indexOf(min(distance_menu_style))
-    console.log(pic_positions_project_case[index], distance_menu_style)
     slider_body_menu_style.style.transform = "translateX(" + pic_positions_menu_style[index] + "px)" 
     transform_slider_menu_style = pic_positions_menu_style[index]
     slider_body_menu_style.style.cursor = "grab"
@@ -214,20 +216,6 @@ slider_body_menu_style.addEventListener("mouseleave", () => {
     slider_body_menu_style.style.cursor = "grab"
 })
 // swap - slider - menu - style
-
-// element maker
-function make_element(type, Id, classes = []){
-    element = document.createElement(type)
-    for(let i  = 0; i < classes.length; i++) {
-        element.classList.add(classes[i])
-    }
-    if(Id != "") {
-        element.setAttribute("id", Id)
-    }
-    return element
-}
-// element maker
-
 // fullscreen navbar
 fullnavbar_open_close[0].addEventListener("mousedown", function () {
     full_navbar.classList.remove("d-none")
@@ -329,3 +317,103 @@ collapse_full_navbar.forEach(function (ite6){
     })
 })
 // fullscreen navbar
+// element maker - clid
+function make_element(type, Id, classes = []){
+    element = document.createElement(type)
+    for(let i  = 0; i < classes.length; i++) {
+        element.classList.add(classes[i])
+    }
+    if(Id != "") {
+        element.setAttribute("id", Id)
+    }
+    return element
+}
+function pclid(type ,propertys) {
+    element = document.createElement(type)
+    for(let e = 0; e < Object.keys(propertys).length; e++) {
+        element.setAttribute(Object.keys(propertys)[e], Object.values(propertys)[e])
+    }
+    return element
+}
+// element maker - clid
+// header boxes
+for(let i = 0; i < present_boxes.length; i++) {
+    parentel = make_element(present_boxes[i].type, "", present_boxes[i].classes)
+    for(let y = 0; y < present_boxes[i].inner_child_count; y++) {
+        code = "present_boxes["+ i +"].inner_child_" + y.toString()
+        type = "present_boxes["+ i +"].inner_child_" + y.toString() + ".type"
+        classes = "present_boxes["+ i +"].inner_child_" + y.toString() + ".classes"
+        p_element = make_element(eval(type), "", eval(classes))
+        for(let z = 0; z < eval(code).inner_child_count; z++) {
+            code2 = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString()
+            type = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".type"
+            classes = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".classes"
+            p2_element = make_element(eval(type), "", eval(classes))
+            for(let w = 0; w < eval(code2).inner_child_count; w++) {
+                code3 = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_" + w.toString()
+                type = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +".type"
+                propertys = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+ w.toString()+ ".propertys"
+                p3_element = pclid(eval(type), eval(propertys))
+                for(let q = 0; q < eval(code).inner_child_count; q++) {
+                    code3 = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_" + w.toString() + q.toString()
+                    type = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +  ".inner_child_"+ q.toString() +".type"
+                    propertys = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+ w.toString()+  ".inner_child_"+ q.toString() +".propertys"
+                    p4_element = pclid(eval(type), eval(propertys))
+                    p3_element.appendChild(p4_element)
+                }
+                p2_element.appendChild(p3_element)
+            }
+            p_element.appendChild(p2_element)
+        }
+    }
+    parentel.appendChild(p_element)
+}
+// header boxes
+// feature
+for(let i = 0; i < features.length; i++) {
+    parentel = make_element(features[i].type, "", features[i].classes)
+    for(let y = 0; y < features[i].inner_child_count; y++) {
+        code = "features["+ i +"].inner_child_" + y.toString()
+        type = "features["+ i +"].inner_child_" + y.toString() + ".type"
+        classes = "features["+ i +"].inner_child_" + y.toString() + ".classes"
+        p_element = make_element(eval(type), "", eval(classes))
+        for(let z = 0; z < eval(code).inner_child_count; z++) {
+            code2 = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString()
+            type = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".type"
+            classes = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".classes"
+            p2_element = make_element(eval(type), "", eval(classes))
+            for(let w = 0; w < eval(code2).inner_child_count; w++) {
+                code3 = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_" + w.toString()
+                type = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +".type"
+                switch(eval(type)) {
+                    case "svg":       
+                        propertys = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+ w.toString()+ ".propertys"
+                        p3_element = pclid(eval(type), eval(propertys))
+                        p2_element.appendChild(p3_element)
+                        for(let q = 0; q < eval(code3).inner_child_count; q++) {
+                            code4 = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_" + w.toString() + q.toString()
+                            type = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +  ".inner_child_"+ q.toString() +".type"
+                            propertys = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+ w.toString()+  ".inner_child_"+ q.toString() +".propertys"
+                            p4_element = pclid(eval(type), eval(propertys))
+                            p3_element.appendChild(p4_element)
+                        }
+                        break
+                    case "div":
+                        code3 = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_" + w.toString()
+                        type = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +".type"
+                        classes = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +".classes"
+                        text = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +".text"
+                        p4_element = make_element(eval(type), "", eval(classes))
+                        p4_element.textContent = eval(text)
+                        p2_element.appendChild(p4_element)
+                        break
+                }
+            }
+            p_element.appendChild(p2_element)
+        }
+    }
+    parentel.appendChild(p_element)
+}
+// feature
+// animation page
+// animation page
