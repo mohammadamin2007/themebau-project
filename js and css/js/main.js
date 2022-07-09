@@ -88,32 +88,6 @@ if(localStorage.getItem("navbar-last-status") !== null) {
 }
 // hide - navbar - enter
 
-// all - scrolling - changes
-window.onscroll = function() {
-    if(document.body.scrollTop >=  160) {
-        navbar.classList.add("navbar-scrolled")
-    } else{
-        navbar.classList.remove("navbar-scrolled")
-    }
-    if(document.body.scrollTop >= 600){
-        if(window_scroll < window.scrollY){
-            window_scroll = window.scrollY
-            navbar.classList.add("navbar-hide")
-            replace_navbar.classList.add("navbar-hide")
-            localStorage.setItem("navbar-last-status", "hide")
-        }
-        if(window_scroll > window.scrollY){
-            navbar.classList.remove("navbar-hide")
-            replace_navbar.classList.remove("navbar-hide")
-            window_scroll = window.scrollY
-            localStorage.setItem("navbar-last-status", "show")
-        }
-    }
-    scroll_ball.style.transform = "translate(0px, -" + window.scrollY / 6+ "px)"
-    scroll_ball_project_case.style.transform = "translate(0px, " + window.scrollY / 20 + "px)"
-    scroll_ball_varity.style.transform = "translate(0px, " + window.scrollY / 20 + "px)"
-}
-// all - scrolling - changes
 
 // footer - float - image
 footer_link.addEventListener("mouseenter", () => {
@@ -127,7 +101,7 @@ footer_link.addEventListener("mouseleave", () => {
 footer_link.addEventListener("mousemove", (e) => {
     client_x = e.clientX
     client_y = e.clientY
-    float_img.style.transform = "matrix(1, 0, 0, 1 ," + (e.clientX - 200) + " ," + (e.clientY - 400) + ")"
+    float_img.style.transform = "matrix(1, 0, 0, 1 ," + (e.clientX - window.innerWidth / 10) + " ," + (e.clientY - window.innerHeight / 2) + ")"
 })
 // footer -float - image
 
@@ -317,103 +291,149 @@ collapse_full_navbar.forEach(function (ite6){
     })
 })
 // fullscreen navbar
-// element maker - clid
-function make_element(type, Id, classes = []){
-    element = document.createElement(type)
-    for(let i  = 0; i < classes.length; i++) {
-        element.classList.add(classes[i])
-    }
-    if(Id != "") {
-        element.setAttribute("id", Id)
-    }
-    return element
-}
-function pclid(type ,propertys) {
-    element = document.createElement(type)
-    for(let e = 0; e < Object.keys(propertys).length; e++) {
-        element.setAttribute(Object.keys(propertys)[e], Object.values(propertys)[e])
-    }
-    return element
-}
-// element maker - clid
 // header boxes
-for(let i = 0; i < present_boxes.length; i++) {
-    parentel = make_element(present_boxes[i].type, "", present_boxes[i].classes)
-    for(let y = 0; y < present_boxes[i].inner_child_count; y++) {
-        code = "present_boxes["+ i +"].inner_child_" + y.toString()
-        type = "present_boxes["+ i +"].inner_child_" + y.toString() + ".type"
-        classes = "present_boxes["+ i +"].inner_child_" + y.toString() + ".classes"
-        p_element = make_element(eval(type), "", eval(classes))
-        for(let z = 0; z < eval(code).inner_child_count; z++) {
-            code2 = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString()
-            type = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".type"
-            classes = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".classes"
-            p2_element = make_element(eval(type), "", eval(classes))
-            for(let w = 0; w < eval(code2).inner_child_count; w++) {
-                code3 = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_" + w.toString()
-                type = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +".type"
-                propertys = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+ w.toString()+ ".propertys"
-                p3_element = pclid(eval(type), eval(propertys))
-                for(let q = 0; q < eval(code).inner_child_count; q++) {
-                    code3 = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_" + w.toString() + q.toString()
-                    type = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +  ".inner_child_"+ q.toString() +".type"
-                    propertys = "present_boxes["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+ w.toString()+  ".inner_child_"+ q.toString() +".propertys"
-                    p4_element = pclid(eval(type), eval(propertys))
-                    p3_element.appendChild(p4_element)
-                }
-                p2_element.appendChild(p3_element)
-            }
-            p_element.appendChild(p2_element)
-        }
-    }
-    parentel.appendChild(p_element)
+function createHeaderBoxes(imgPATH, imgAlt, textHeader, parentSelector){
+    let parentDIV = document.createElement("div")
+    parentDIV.classList = "col-12 col-md-6 col-lg-4 project-demo"
+
+    let parentLINK = document.createElement("a")
+    parentLINK.href = "#"    
+    parentLINK.classList = "card text-decoration-none demo-card border-0 bg-dark show-on-scroll opacity-0"
+    parentLINK.style.transform = "translateY(10px)"
+    parentLINK.style.transitionDuration = "500ms"
+    
+
+    let headerDIV = document.createElement("div")
+    headerDIV.classList = "card-image"
+
+    let footerDIV = document.createElement("div")
+    footerDIV.classList = "card-body bg-dark"
+
+    let newIMG = document.createElement("img")
+    newIMG.src = imgPATH
+    newIMG.alt = imgAlt
+
+    let footerTEXT = document.createElement("span")
+    footerTEXT.classList = "text-white h5 card-title"
+    footerTEXT.textContent = textHeader
+
+    footerDIV.appendChild(footerTEXT)
+    headerDIV.appendChild(newIMG)
+    parentLINK.appendChild(headerDIV)
+    parentLINK.appendChild(footerDIV)
+    parentDIV.appendChild(parentLINK)
+    document.querySelector(parentSelector).appendChild(parentDIV)
 }
+headerBOXES.forEach(function (item) {
+    createHeaderBoxes(item.imgPATH, item.imgAlt, item.textHeader, item.parentSelector)
+})
 // header boxes
-// feature
-for(let i = 0; i < features.length; i++) {
-    parentel = make_element(features[i].type, "", features[i].classes)
-    for(let y = 0; y < features[i].inner_child_count; y++) {
-        code = "features["+ i +"].inner_child_" + y.toString()
-        type = "features["+ i +"].inner_child_" + y.toString() + ".type"
-        classes = "features["+ i +"].inner_child_" + y.toString() + ".classes"
-        p_element = make_element(eval(type), "", eval(classes))
-        for(let z = 0; z < eval(code).inner_child_count; z++) {
-            code2 = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString()
-            type = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".type"
-            classes = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".classes"
-            p2_element = make_element(eval(type), "", eval(classes))
-            for(let w = 0; w < eval(code2).inner_child_count; w++) {
-                code3 = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_" + w.toString()
-                type = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +".type"
-                switch(eval(type)) {
-                    case "svg":       
-                        propertys = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+ w.toString()+ ".propertys"
-                        p3_element = pclid(eval(type), eval(propertys))
-                        p2_element.appendChild(p3_element)
-                        for(let q = 0; q < eval(code3).inner_child_count; q++) {
-                            code4 = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_" + w.toString() + q.toString()
-                            type = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +  ".inner_child_"+ q.toString() +".type"
-                            propertys = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+ w.toString()+  ".inner_child_"+ q.toString() +".propertys"
-                            p4_element = pclid(eval(type), eval(propertys))
-                            p3_element.appendChild(p4_element)
-                        }
-                        break
-                    case "div":
-                        code3 = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_" + w.toString()
-                        type = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +".type"
-                        classes = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +".classes"
-                        text = "features["+ i +"].inner_child_" + y.toString() + ".inner_child_" + z.toString() + ".inner_child_"+w.toString() +".text"
-                        p4_element = make_element(eval(type), "", eval(classes))
-                        p4_element.textContent = eval(text)
-                        p2_element.appendChild(p4_element)
-                        break
-                }
-            }
-            p_element.appendChild(p2_element)
+// description
+function logColor(pathData) {
+    peresentBoxes.forEach((item) => {
+        if(item.pathData == pathData) {
+            console.log(item.pathColor)
         }
-    }
-    parentel.appendChild(p_element)
+    })
 }
+function createDescriptionBoxes(pathData, pathColor, parentSelector) {
+    let parentDIV = document.createElement("div")
+    parentDIV.classList = "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 bau-description-layout show-on-scroll opacity-0"
+    parentDIV.style.transform = "translateY(20px)"
+    parentDIV.style.transitionDuration = "500ms"
+
+    let parentLINK = document.createElement("a")
+    parentLINK.style = "cursor: pointer"
+    parentLINK.setAttribute("onclick", "logColor('" + pathData + "')")
+    parentLINK.classList = "bau-description-svg card demo-card"
+    
+    let newSpan = document.createElement("span")
+    newSpan.classList = "p-18 card-image d-flex align-self-center"
+
+    let newSVG = document.createElement("svg")
+    newSVG.setAttribute("width", 134)
+    newSVG.setAttribute("height", 109)
+    newSVG.setAttribute("viewBox", "0 0 134 109")
+    newSVG.setAttribute("fill", "none")
+    newSVG.setAttribute("xmls", "http://www.w3.org/2000/svg")
+
+    let newPATH = document.createElement("path")
+    newPATH.setAttribute("fill-rule", "evenodd")
+    newPATH.setAttribute("clip-rule", "evenodd")
+    newPATH.setAttribute("d", pathData)
+    newPATH.setAttribute("fill", pathColor)
+    
+    newSVG.appendChild(newPATH)
+    newSpan.appendChild(newSVG)
+    parentLINK.appendChild(newSpan)
+    parentDIV.appendChild(parentLINK)
+    document.querySelector(parentSelector).appendChild(parentDIV)
+}
+peresentBoxes.forEach((item) => {
+    createDescriptionBoxes(item.pathData, item.pathColor, item.parentSelector)
+})
+// description
 // feature
-// animation page
-// animation page
+function createFeatureBoxes(iconPATH, iconWidth, iconHeight, titleTEXT, detailTEXT, parentSelector) {
+    let parentDIV = document.createElement("div")
+    parentDIV.classList = "col-md-6 col-lg-4 show-on-scroll opacity-0"
+    parentDIV.style.transform = "translateY(20px)"
+    parentDIV.style.transitionDuration = "500ms"
+
+
+    let parentBOX = document.createElement("div")
+    parentBOX.classList = "feature d-flex"
+
+    let iconBox = document.createElement("div")
+    iconBox.classList = "feature-icon"
+
+    let bigIcon = document.createElement("svg")
+    bigIcon.setAttribute("width", 71)
+    bigIcon.setAttribute("height", 70)
+    bigIcon.setAttribute("viewBox", "0 0 71 70")
+    bigIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+    bigIcon.setAttribute("fill", "none")
+    let bigIconPATH = document.createElement("path")
+    bigIconPATH.setAttribute("d", "M5.18911 17.7887L35 0.57735L64.8109 17.7887V52.2113L35 69.4226L5.18911 52.2113V17.7887Z")
+    bigIcon.appendChild(bigIconPATH)
+    bigIconPATH = document.createElement("path")
+    bigIconPATH.setAttribute("d", "M18.2867 65.3084L1.0754 35.4976L18.2867 5.68667H52.7094L69.9207 35.4976L52.7094 65.3084H18.2867Z")
+    bigIcon.appendChild(bigIconPATH)
+    iconBox.appendChild(bigIcon)
+
+    let smallIcon = document.createElement("svg")
+    smallIcon.setAttribute("width", iconWidth)
+    smallIcon.setAttribute("height", iconHeight)
+    smallIcon.setAttribute("viewBox", "0 0 " + iconWidth + " " + iconHeight)
+    smallIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+    iconBox.appendChild(smallIcon)
+    let smallIconPath = document.createElement("path")
+    smallIconPath.setAttribute("d", iconPATH)
+    smallIconPath.setAttribute("stroke", "currentcolor")
+    smallIconPath.setAttribute("stroke-width", 1.5)
+    smallIconPath.setAttribute("stroke-linecap", "round")
+    smallIconPath.setAttribute("stroke-linejoin", "round")
+    smallIcon.appendChild(smallIconPath)
+
+    let textBox = document.createElement("div")
+    textBox.classList = "feature-description"
+
+    let textBoxTitle = document.createElement("div")
+    textBoxTitle.classList = "feature-description-title"
+    textBoxTitle.textContent = titleTEXT
+    textBox.appendChild(textBoxTitle)
+    
+    let textBoxDetail = document.createElement("div")
+    textBoxDetail.classList = "feature-description-detail"
+    textBoxDetail.textContent = detailTEXT
+    textBox.appendChild(textBoxDetail)
+
+    parentBOX.appendChild(iconBox)
+    parentBOX.appendChild(textBox)
+    parentDIV.appendChild(parentBOX)
+    document.querySelector(parentSelector).appendChild(parentDIV)
+}
+features.forEach((item) => {
+    createFeatureBoxes(item.d, item.width, item.height, item.title, item.detail, item.parentSelector)
+})
+// feature
