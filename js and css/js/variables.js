@@ -127,31 +127,37 @@ let peresentBoxes = [
         pathData: "M134 0H0V50H134V0ZM134 59H0V109H134V59Z",
         pathColor: "red",
         parentSelector: "#themebau-description .container .themebau-bottom-description-model",
+        transitiondelay: "150ms",
     }
     ,el2 = {
         pathData: "M62 0H0V50H62V0ZM62 59H0V109H62V59ZM72 59H134V109H72V59ZM134 0H72V50H134V0Z",
         pathColor: "green",
         parentSelector: "#themebau-description .container .themebau-bottom-description-model",
+        transitiondelay: "100ms",
     }
     ,el3 = {
         pathData: "M62 0H0V64H62V0ZM134 45H72V109H134V45ZM72 0H134V36H72V0ZM62 73H0V109H62V73Z",
         pathColor: "yellow",
         parentSelector: "#themebau-description .container .themebau-bottom-description-model",
+        transitiondelay: "0ms",
     }
     ,el4 = {
         pathData: "M38 0H0V50H38V0ZM86 0H47V50H86V0ZM95 0H134V50H95V0ZM38 59H0V109H38V59ZM47 59H86V109H47V59ZM134 59H95V109H134V59Z",
         pathColor: "black",
         parentSelector: "#themebau-description .container .themebau-bottom-description-model",
+        transitiondelay: "0ms",
     }
     ,el5 = {
         pathData: "M38 0H0V62H38V0ZM86 0H47V38H86V0ZM95 0H134V62H95V0ZM38 71H0V109H38V71ZM47 47H86V109H47V47ZM134 71H95V109H134V71Z",
         pathColor: "blue",
         parentSelector: "#themebau-description .container .themebau-bottom-description-model",
+        transitiondelay: "100ms",
     },
     el6 = {
         pathData: "M29 0H0V32H29V0ZM29 38H0V71H29V38ZM0 77H29V109H0V77ZM64 0H35V32H64V0ZM35 38H64V71H35V38ZM64 77H35V109H64V77ZM70 0H99V32H70V0ZM99 38H70V71H99V38ZM70 77H99V109H70V77ZM134 0H105V32H134V0ZM105 38H134V71H105V38ZM134 77H105V109H134V77Z",
         pathColor: "white",
         parentSelector: "#themebau-description .container .themebau-bottom-description-model",
+        transitiondelay: "150ms",
     }
 ]
 // present uniqu

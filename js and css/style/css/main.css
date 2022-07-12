@@ -173,7 +173,7 @@
   visibility: hidden;
   opacity: 0;
   width: 240px;
-  right: 98%;
+  left: 98%;
   padding: 20px 0 !important;
   font-size: 15px !important;
   font-weight: 600 !important;

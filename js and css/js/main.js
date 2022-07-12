@@ -292,6 +292,8 @@ collapse_full_navbar.forEach(function (ite6){
 })
 // fullscreen navbar
 // header boxes
+let transitiondelay = 100
+let time = 0
 function createHeaderBoxes(imgPATH, imgAlt, textHeader, parentSelector){
     let parentDIV = document.createElement("div")
     parentDIV.classList = "col-12 col-md-6 col-lg-4 project-demo"
@@ -301,7 +303,13 @@ function createHeaderBoxes(imgPATH, imgAlt, textHeader, parentSelector){
     parentLINK.classList = "card text-decoration-none demo-card border-0 bg-dark show-on-scroll opacity-0"
     parentLINK.style.transform = "translateY(10px)"
     parentLINK.style.transitionDuration = "500ms"
-    
+    parentLINK.style.transitionDelay = transitiondelay + "ms"
+    time += 1
+    if(time % 3 == 0) {
+        transitiondelay = 100
+    } else {
+        transitiondelay += 50
+    }
 
     let headerDIV = document.createElement("div")
     headerDIV.classList = "card-image"
@@ -336,11 +344,12 @@ function logColor(pathData) {
         }
     })
 }
-function createDescriptionBoxes(pathData, pathColor, parentSelector) {
+function createDescriptionBoxes(pathData, pathColor, parentSelector, transitiondelay) {
     let parentDIV = document.createElement("div")
     parentDIV.classList = "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 bau-description-layout show-on-scroll opacity-0"
     parentDIV.style.transform = "translateY(20px)"
     parentDIV.style.transitionDuration = "500ms"
+    parentDIV.style.transitionDelay = transitiondelay
 
     let parentLINK = document.createElement("a")
     parentLINK.style = "cursor: pointer"
@@ -370,16 +379,24 @@ function createDescriptionBoxes(pathData, pathColor, parentSelector) {
     document.querySelector(parentSelector).appendChild(parentDIV)
 }
 peresentBoxes.forEach((item) => {
-    createDescriptionBoxes(item.pathData, item.pathColor, item.parentSelector)
+    createDescriptionBoxes(item.pathData, item.pathColor, item.parentSelector, item.transitiondelay)
 })
 // description
 // feature
+transitiondelay = 100
+time = 0
 function createFeatureBoxes(iconPATH, iconWidth, iconHeight, titleTEXT, detailTEXT, parentSelector) {
     let parentDIV = document.createElement("div")
     parentDIV.classList = "col-md-6 col-lg-4 show-on-scroll opacity-0"
     parentDIV.style.transform = "translateY(20px)"
     parentDIV.style.transitionDuration = "500ms"
-
+    parentDIV.style.transitionDelay = transitiondelay + "ms"
+    time += 1
+    if(time % 3 == 0) {
+        transitiondelay = 100
+    } else {
+        transitiondelay += 100
+    }
 
     let parentBOX = document.createElement("div")
     parentBOX.classList = "feature d-flex"
