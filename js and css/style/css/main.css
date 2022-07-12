@@ -847,7 +847,7 @@ footer .container .row .nav-link-footer .float-img-link .footer-link {
     padding-right: 100px;
   }
 }
-footer .container .row .nav-link-footer .float-img-link .footer-link u {
+footer .container .row .nav-link-footer .float-img-link .footer-link u span {
   border-bottom: 1px solid currentColor;
 }
 footer .container .row .arrow-icon {

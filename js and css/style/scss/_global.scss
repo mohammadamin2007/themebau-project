@@ -887,7 +887,9 @@ footer{
               padding-right: 100px;
             }
             u{
-              border-bottom: 1px solid currentColor;
+              span{
+                border-bottom: 1px solid currentColor;
+              }
             }
           }
         }
