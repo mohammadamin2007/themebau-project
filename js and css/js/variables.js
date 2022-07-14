@@ -1,57 +1,56 @@
 // navbar
-let navbar = document.querySelector("#navbar")
-let replace_navbar = document.querySelector("#replace-navbar")
-let main_nav_link = document.querySelectorAll(".main-nav-link")
-let nav_link_full = document.querySelectorAll(".nav-link-full")
-let nav_link_social = document.querySelectorAll(".navbar-social .nav-link")
-let main_drop_menu = document.querySelectorAll(".main-dropdown-menu")
-let side_drop_menu = document.querySelectorAll(".side-dropdown-menu")
-let navigetor_link = document.querySelectorAll(".nav-link-navigator")
-let full_navigator_link = document.querySelectorAll(".nav-link-w-navigator")
-let angle = document.querySelectorAll(".nav-link-w-navigator .link-navigator-full .fas")
-let collapse_full_navbar = document.querySelectorAll(".collapse-in-collapse") 
-let collapse_toggler= document.querySelectorAll(".collapse-toggler") 
-let window_scroll = window.scrollY
-let n_c = 0
-let show_drop = false
-let w_n_l = false 
+let getNavbar = document.querySelector("#navbar")
+let replaceNavbar = document.querySelector("#replace-navbar")
+let mainNAVLinks = document.querySelectorAll(".main-nav-link")
+let fullNavbarLinks = document.querySelectorAll(".nav-link-full")
+let socialMediaLinks = document.querySelectorAll(".navbar-social .nav-link")
+let mainDropMenus = document.querySelectorAll(".main-dropdown-menu")
+let dropMenusONSide = document.querySelectorAll(".side-dropdown-menu")
+let linkWithIcon = document.querySelectorAll(".nav-link-navigator")
+let fullNavbarLinksWithIcon = document.querySelectorAll(".nav-link-w-navigator")
+let fullNavbarLinksIcon = document.querySelectorAll(".nav-link-w-navigator .link-navigator-full .fas")
+let fullNavbarCollapseINCollapse = document.querySelectorAll(".collapse-in-collapse")
+let fullNavbarCollapsesToggler= document.querySelectorAll(".collapse-toggler")
+let windowScrollY = window.scrollY
+let navLinkNOTChangeColor = 0
+let dropLinkPUTColor = 0
 // navbar
 // scroll - balls
-let scroll_ball = document.querySelector(".scroll-ball-img")
-let scroll_ball_project_case = document.querySelector(".scroll-ball-project-case")
-let scroll_ball_varity = document.querySelector(".scroll-ball-varity")
+let headerScrollBall = document.querySelector(".scroll-ball-img")
+let projectShowCaseScrollBall = document.querySelector(".scroll-ball-project-case")
+let varityScrollBall = document.querySelector(".scroll-ball-varity")
 // scroll - balls
 // slider - project - case
-let slider_body_project_case = document.querySelector(".slider-body")
-let pic_positions_project_case = [0, -570, -970, -1540, -1880]
-let distance_project_case = []
-let first_mouse_position_project_case = 0
-let mouse_position = 0
-let transform_slider_project_case = slider_body_project_case.style.transform.replace(/[^\d.]/g, '')
-let index = 0
-let indicator_project_showcase = document.querySelector("#project-showcase .indicator-line")
-let transform_indicator_project_case = indicator_project_showcase.style.transform.replace(/[^\d.]/g, '')
+// let slider_body_project_case = document.querySelector(".slider-body")
+// let pic_positions_project_case = [0, -570, -970, -1540, -1880]
+// let distance_project_case = []
+// let first_mouse_position_project_case = 0
+// let mouse_position = 0
+// let transform_slider_project_case = slider_body_project_case.style.transform.replace(/[^\d.]/g, '')
+// let index = 0
+// let indicator_project_showcase = document.querySelector("#project-showcase .indicator-line")
+// let transform_indicator_project_case = indicator_project_showcase.style.transform.replace(/[^\d.]/g, '')
 // slider - project - case
-// slider - menu - style
-let slider_body_menu_style = document.querySelectorAll(".slider-body")[1]
-let pic_positions_menu_style = [0, -330]
-let distance_menu_style = []
-let first_mouse_position_menu_style = 0
-let transform_slider_menu_style = slider_body_menu_style.style.transform.replace(/[^\d.]/g, '')
-let indicator_menu_style = document.querySelector("#menu-style .indicator-line")
+// // slider - menu - style
+// let slider_body_menu_style = document.querySelectorAll(".slider-body")[1]
+// let pic_positions_menu_style = [0, -330]
+// let distance_menu_style = []
+// let first_mouse_position_menu_style = 0
+// let transform_slider_menu_style = slider_body_menu_style.style.transform.replace(/[^\d.]/g, '')
+// let indicator_menu_style = document.querySelector("#menu-style .indicator-line")
 // slider - menu - style
 // footer - float - img
-let float_img = document.querySelector(".float-img")
-let footer_link = document.querySelector(".footer-link")
-let client_y = 0
-let client_x = 0
+let footerFloatIMG = document.querySelector(".float-img")
+let footerLink = document.querySelector(".footer-link")
 // footer - float - img
 // fullscreen navbar
-let fullnavbar_open_close = document.querySelectorAll(".navbar-toggler-replace")
-let full_navbar = document.querySelector(".full-screen-navbar")
-let toggler_lines = document.querySelectorAll(".full-screen-navbar .navbar-toggler-line")
+let fullNavbarTogglers = document.querySelectorAll(".navbar-toggler-replace")
+let getFullNavbar = document.querySelector(".full-screen-navbar")
+let fullNavbarCloseTooglerLines = document.querySelectorAll(".full-screen-navbar .navbar-toggler-line")
 // fullscreen navbar
 // header boxes
+let transitiondelay = 100
+let time = 0
 let headerBOXES = [
     el1 = {
         imgPATH: "./assets/main-home-740-600.jpg",
@@ -213,46 +212,3 @@ let features = [
     }
 ]
 // features
-// animation page
-window.addEventListener("load", function () {
-    let elementShouldAnimated = document.querySelectorAll(".show-on-scroll")
-    elementShouldAnimated.forEach((item) => {
-        if(item.getBoundingClientRect().top <= window.innerHeight - 10 && item.getBoundingClientRect().top >= -10) {
-            item.style.transform = "translateY(0px)"
-            item.style.transform = "translateX(0px)"
-            item.classList.remove("opacity-0")
-        }
-    })
-    window.onscroll = () => {
-        if(document.body.scrollTop >=  160) {
-            navbar.classList.add("navbar-scrolled")
-        } else{
-            navbar.classList.remove("navbar-scrolled")
-        }
-        if(document.body.scrollTop >= 600){
-            if(window_scroll < window.scrollY){
-                window_scroll = window.scrollY
-                navbar.classList.add("navbar-hide")
-                replace_navbar.classList.add("navbar-hide")
-                localStorage.setItem("navbar-last-status", "hide")
-            }
-            if(window_scroll > window.scrollY){
-                navbar.classList.remove("navbar-hide")
-                replace_navbar.classList.remove("navbar-hide")
-                window_scroll = window.scrollY
-                localStorage.setItem("navbar-last-status", "show")
-            }
-        }
-        scroll_ball.style.transform = "translate(0px, -" + window.scrollY / 6+ "px)"
-        scroll_ball_project_case.style.transform = "translate(0px, " + window.scrollY / 20 + "px)"
-        scroll_ball_varity.style.transform = "translate(0px, " + window.scrollY / 20 + "px)"
-        elementShouldAnimated.forEach((item) => {
-            if(item.getBoundingClientRect().top <= window.innerHeight - 10 && item.getBoundingClientRect().top >= -20) {
-                item.style.transform = "translateY(0px)"
-                item.style.transform = "translateX(0px)"
-                item.classList.remove("opacity-0")
-            }
-        })
-    }
-})
-// animation page

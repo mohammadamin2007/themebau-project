@@ -1,3 +1,4 @@
+//utilities
 .font-500{
   font-weight: 500;
 }
@@ -37,11 +38,6 @@
     margin-right: -100px !important;
   }
   
-}
-@media screen and (max-width: 437px){
-  #site-content #themebau-description .container .themebau-top-description .description-img .bottom-img {
-    width: 100% !important;
-  }
 }
 .mt-lg-70{
   @media screen and (min-width: 1024px){
@@ -112,6 +108,36 @@
 .mt-3-customized{
   margin-top: 3px !important;
 }
+.mb-8{
+  margin-bottom: -8px !important;
+}
+.mt-6{
+  margin-top: -6px;
+}
+.py-130{
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+.pb-130{
+  padding-bottom: 130px;
+}
+.mt-30{
+  margin-top: -30px !important;
+}
+.ml-30{
+  margin-left: -30px !important;
+}
+.fs-17{
+  font-size: 17px !important;
+}
+// utilities
+@media screen and (max-width: 437px){
+  #site-content #themebau-description .container .themebau-top-description .description-img .bottom-img {
+    width: 100% !important;
+  }
+}
+
+// dropdown styles
 .main-dropdown-menu:not(.b-dropdown){
   transition: visibility .15s ease-in-out, opacity .15s ease-in-out;
   visibility: hidden;
@@ -190,28 +216,9 @@
     }
   }
 }
-.mb-8{
-  margin-bottom: -8px !important;
-}
-.mt-6{
-  margin-top: -6px;
-}
-.py-130{
-  padding-top: 130px;
-  padding-bottom: 130px;
-}
-.pb-130{
-  padding-bottom: 130px;
-}
-.mt-30{
-  margin-top: -30px !important;
-}
-.ml-30{
-  margin-left: -30px !important;
-}
-.fs-17{
-  font-size: 17px !important;
-}
+//dropdown styles
+
+// btn balls styles
 .ball-btns{
   padding: 15px 40px;
   margin-left: 60px;
@@ -220,7 +227,7 @@
 }
 .the-ball-ball-btns{
   margin-left: 20px;
-  background-color: #0e0e0e;
+  background-color: $btn-ball-default-color;
   height: 6px;
   width: 6px;
   border-radius: 100%;
@@ -229,6 +236,9 @@
   animation: ball-btns-animated .3s infinite alternate cubic-bezier(0.2, 1, 0.3, 0.92);
   @include ball-btns-animated
 }
+// btn balls styles
+
+// navbar and replace navbar styles
 #navbar{
   width: 100%;
   height: 0;
@@ -254,9 +264,6 @@
         .dropdown-menu:hover{
           visibility: visible;
           opacity: 1;
-        }
-        .nav-item:hover{
-          color: white;
         }
       }
       .purchase{
@@ -315,8 +322,8 @@
       .purchase{
         @media screen and (max-width: 621px){
           padding: 0;
-          background-color: transparent !important;
-          color: white;
+          background-color: $navbar-btn-background-color-max-620 !important;
+          color: $navbar-btn-color-max-620;
           .purchase-ball{
             display: none !important;
           }
@@ -342,8 +349,12 @@
 .navbar-scrolled{
   height: 5.65rem !important;
 }
+// navbar and replace navbar styles
+
+// site main container
 #site-content{
   position: relative;
+  // header styles
   #header{
     .container{
       .scroll-ball{
@@ -394,7 +405,7 @@
               width: 100%;
               height: 14px;
               left: 0;
-              background-color: #202020;
+              background-color: $mac-navbar-style-background-color-project-demo-menu-style;
               position: absolute;
               top: 0;
               border-radius: 5px 5px 0px 0px;
@@ -407,8 +418,8 @@
               left: 8px;
               height: 4px;
               width: 4px;
-              color: #3e3e3e;
-              background-color: #3e3e3e;
+              color: $mac-navbar-style-btn-background-color-project-demo-menu-style;
+              background-color: $mac-navbar-style-btn-background-color-project-demo-menu-style;
               box-shadow: 7px 0 0 currentColor,14px 0 0 currentColor;
             }
           }
@@ -424,6 +435,9 @@
       }
     }
   }
+  // header style
+
+  // themebau description styles
   #themebau-description{
     .container{
       margin-top: -40px;
@@ -462,7 +476,7 @@
                 margin-left: 0;
                 .description-ball{
                   @extend .the-ball-ball-btns;
-                  background-color: white;
+                  background-color: $themebau-description-btn-ball-color;
                 }
             }
             a:hover{
@@ -504,10 +518,10 @@
               width: 100.9%;
               left: -1px;
               height: 14px;
-              border-right: 1px solid #e2e2e2;
-              border-top: 1px solid #e2e2e2;
-              border-left: 1px solid #e2e2e2;
-              background-color: #f1f1f1;
+              border-right: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+              border-top: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+              border-left: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+              background-color: $mac-navbar-style-background-color-description-models-about-us;
               position: absolute;
               top: -1px;
               border-radius: 3px 3px 0 0;
@@ -518,9 +532,9 @@
                 width: 100.4%;
                 left: -1px;
                 height: 14px;
-                border-right: 1px solid rgba(0, 0, 0, 0.175);
-                border-top: 1px solid rgba(0, 0, 0, 0.175);
-                border-left: 1px solid rgba(0, 0, 0, 0.175);
+                border-right: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+                border-top: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+                border-left: 1px solid $mac-navbar-style-border-color-description-models-about-us;
                 background-color: #f1f1f1;
                 position: absolute;
                 top: 0px;
@@ -533,10 +547,10 @@
                 width: 100.6%;
                 left: -1px;
                 height: 14px;
-                border-right: 1px solid rgba(0, 0, 0, 0.175);
-                border-top: 1px solid rgba(0, 0, 0, 0.175);
-                border-left: 1px solid rgba(0, 0, 0, 0.175);
-                background-color: #f1f1f1;
+                border-right: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+                border-top: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+                border-left: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+                background-color: $mac-navbar-style-background-color-description-models-about-us;
                 position: absolute;
                 top: 0px;
                 border-radius: 5px 5px 0px 0px;
@@ -550,8 +564,8 @@
               left: 8px;
               height: 4px;
               width: 4px;
-              color: #cecece;
-              background-color: #cecece;
+              color: $mac-navbar-style-btn-background-color-description-models-about-us;
+              background-color: $mac-navbar-style-btn-background-color-description-models-about-us;
               box-shadow: 7px 0 0 currentColor,14px 0 0 currentColor;
             }
           }
@@ -565,6 +579,9 @@
       }
     }
   }
+  // themebau description styles
+
+  // project showcase styles
   #project-showcase{
     .scroll-ball-project-case{
       z-index: 0;
@@ -580,15 +597,18 @@
         height: 2px;
         margin: 85px auto 0;
         border-radius: 0;
-        background-color: rgba(255,255,255,.1);
+        background-color: $slider-indicatores-background-color;
         .indicator-line{
-          background-color: #ffffff;
+          background-color: $slider-indicatores-line-background-color;
           width: 125.7px;
           height: 100%;
         }
       }
     }
   }
+  // project showcase style
+
+  // about us styles
   #about-us{
     .container{
       .about-us-text{
@@ -631,10 +651,10 @@
               width: 100%;
               left: 0px;
               height: 14px;
-              border-right: 1px solid rgba(0, 0, 0, 0.175);
-              border-top: 1px solid rgba(0, 0, 0, 0.175);
-              border-left: 1px solid rgba(0, 0, 0, 0.175);
-              background-color: #f1f1f1;
+              border-right: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+              border-top: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+              border-left: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+              background-color: $mac-navbar-style-background-color-description-models-about-us;
               position: absolute;
               top: 0;
               border-radius: 5px 5px 0px 0px;
@@ -647,8 +667,8 @@
               left: 8px;
               height: 4px;
               width: 4px;
-              color: #cecece;
-              background-color: #cecece;
+              color: $mac-navbar-style-btn-background-color-description-models-about-us;
+              background-color: $mac-navbar-style-btn-background-color-description-models-about-us;
               box-shadow: 7px 0 0 currentColor,14px 0 0 currentColor;
             }
           }
@@ -661,10 +681,10 @@
               width: 101%;
               left: -1px;
               height: 14px;
-              border-right: 1px solid rgba(0, 0, 0, 0.175);
-              border-top: 1px solid rgba(0, 0, 0, 0.175);
-              border-left: 1px solid rgba(0, 0, 0, 0.175);
-              background-color: #f1f1f1;
+              border-right: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+              border-top: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+              border-left: 1px solid $mac-navbar-style-border-color-description-models-about-us;
+              background-color: $mac-navbar-style-background-color-description-models-about-us;
               position: absolute;
               top: 0;
               border-radius: 5px 5px 0px 0px;
@@ -674,6 +694,9 @@
       }
     }
   }
+  // about us styles
+
+  // menu style styles
   #menu-style{
     .container{
       .row{
@@ -713,7 +736,7 @@
                   border-right: 1px solid rgba(0, 0, 0, 0.175);
                   border-top: 1px solid rgba(0, 0, 0, 0.175);
                   border-left: 1px solid rgba(0, 0, 0, 0.175);
-                  background-color: #202020;
+                  background-color: $mac-navbar-style-background-color-project-demo-menu-style;
                   position: absolute;
                   top: -13px;
                   border-radius: 5px 5px 0px 0px;
@@ -726,8 +749,8 @@
                   left: 8px;
                   height: 4px;
                   width: 4px;
-                  color: #3e3e3e;
-                  background-color: #3e3e3e;
+                  color: $mac-navbar-style-btn-background-color-project-demo-menu-style;
+                  background-color: $mac-navbar-style-btn-background-color-project-demo-menu-style;
                   box-shadow: 7px 0 0 currentColor,14px 0 0 currentColor;
                 }
               }
@@ -746,15 +769,18 @@
         height: 2px;
         margin: 85px auto 0;
         border-radius: 0;
-        background-color: rgba(255,255,255,.1);
+        background-color: $slider-indicatores-background-color;
         .indicator-line{
-          background-color: #ffffff;
+          background-color: $slider-indicatores-line-background-color;
           width: 275.349px;
           height: 100%;
         }
       }
     }
   }
+  // menu style styles
+
+  // responsive description styles
   #responsive-description{
     .container{
       .row{
@@ -778,6 +804,9 @@
       }
     }
   }
+  // responsive description styles
+
+  // themebau features styles
   #themebau-features{
     .container{
       .row{
@@ -805,7 +834,7 @@
                 font-size: 1.5rem;
               }
               .feature-description-detail{
-                color: #444444;
+                color: $feature-description-detail-color;
                 font-weight: 400;
                 font-size: 17px;
               }
@@ -815,6 +844,9 @@
       }
     }
   }
+  // themebau features syules
+
+  // themebau varity styles
   #themebau-varity{
     line-height: 27px;
     .scroll-ball-varity{
@@ -841,7 +873,7 @@
             .varity-text{
               padding: 0;
               padding-left: 20px !important;
-              color: white;
+              color: $varity-item-text-color;
               h6{
                 line-height: 27px;
               }
@@ -856,7 +888,11 @@
       }
     }
   }
+  // themebau varity styles
 }
+// site main container
+
+//footer styles
 footer{
   .container{
     .row{
@@ -929,6 +965,9 @@ footer{
     }
   }
 }
+// footer styles
+
+// fullscreen navbar styles
 .full-screen-navbar{
   transition: opacity .15s ease-in-out;
   z-index: 100;
@@ -1011,7 +1050,9 @@ footer{
 .list-group * {
   font-weight: 400;
 }
-// slider
+// fullscreen navbar styles
+
+// slider responsivation
 @media screen and (max-width: 1024px){
   .slider-indicator-project-showcase{
     .indicator-line{
@@ -1094,5 +1135,5 @@ footer{
     }
   }
 }
-// slider
+// slider responsivation
 
