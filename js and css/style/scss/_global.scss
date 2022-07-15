@@ -30,9 +30,6 @@
 .mb-70{
   margin-bottom: 70px;
 }
-.container{
-  padding: 0 !important;
-}
 .mr-lg-100{
   @media screen and (min-width: 1024px){
     margin-right: -100px !important;
@@ -130,15 +127,27 @@
 .fs-17{
   font-size: 17px !important;
 }
+.default-text-color-white{
+  color: $default-text-colors-white !important;
+}
+.default-text-color-black{
+  color: $default-text-colors-black !important;
+}
 // utilities
 @media screen and (max-width: 437px){
   #site-content #themebau-description .container .themebau-top-description .description-img .bottom-img {
     width: 100% !important;
   }
 }
+// container
+.container{
+  padding: 0 !important;
+}
+// container
 
 // dropdown styles
 .main-dropdown-menu:not(.b-dropdown){
+  background-color: $dropdown-background;
   transition: visibility .15s ease-in-out, opacity .15s ease-in-out;
   visibility: hidden;
   opacity: 0;
@@ -185,6 +194,9 @@
   }
 }
 .b-dropdown{
+  padding: 60px 0 !important;
+  max-height: calc(100vh - 90px);
+  background: $dropdown-background !important;
   transition: visibility .15s ease-in-out, opacity .15s ease-in-out;
   visibility: hidden;
   opacity: 0;
@@ -206,8 +218,8 @@
           }
         }
       }
-      .nav-item:hover{
-        .drop-img-link{
+      .nav-item{
+        .drop-img-link:hover{
           .drop-img{
             transform: translateY(-10px);
           }
@@ -242,7 +254,7 @@
 #navbar{
   width: 100%;
   height: 0;
-  display: flex;
+  @include flex-display;
   transform: translateY(0);
   transition: transform 1s cubic-bezier(.2, 1, .2, 1),height .5s cubic-bezier(.2, 1, .2, 1);
   z-index: 2;
@@ -252,7 +264,7 @@
         height: 5.65rem;
       }
       .nav-item {
-        display: flex;
+        @include flex-display;
         .nav-link {
           padding: 6px 20px;
           @extend .font-500;
@@ -290,7 +302,7 @@
     height: 2px;
     margin-bottom: 3px;
     margin-top: 3px;
-    display: flex;
+    @include flex-display;
     background: white;
   }
 }
@@ -356,6 +368,7 @@
   position: relative;
   // header styles
   #header{
+    background-color: $bg-section-header-projectshowcase-menustyle-variety;
     .container{
       .scroll-ball{
         svg{
@@ -387,7 +400,7 @@
               img{
                 width: 100%;
                 padding-top: 14px;
-                border-radius: 5px 5px 0px 0px;
+                border-radius: 5px 5px 0 0;
                 border: solid 1px #202020;
                 border-top: 0;
               }
@@ -397,7 +410,7 @@
               .card-title{
                 display: block;
                 margin-top: 28px;
-                margin-bottom: 0px;
+                margin-bottom: 0;
               }
             }
             .card-image::before{
@@ -408,7 +421,7 @@
               background-color: $mac-navbar-style-background-color-project-demo-menu-style;
               position: absolute;
               top: 0;
-              border-radius: 5px 5px 0px 0px;
+              border-radius: 5px 5px 0 0;
             }
             .card-image::after{
               content: "";
@@ -439,6 +452,7 @@
 
   // themebau description styles
   #themebau-description{
+    background-color: $bg-description-aboutus-feature;
     .container{
       margin-top: -40px;
       .themebau-top-description{
@@ -465,6 +479,7 @@
             @media (min-width: 1024px) {
               margin-top: -2px!important;
             }
+            color: $default-text-detail-colors;
             line-height: 27px;
             margin-bottom: 3.0588235294em;
             text-align: start;
@@ -500,12 +515,10 @@
             padding-top: 44px !important;
           }
           .demo-card{
-            border-radius: 0;
+            border-radius: 3% 3% 0 0;
             border-top-width: initial;
             border-top-style: none;
             border-top-color: initial;
-            border-top-left-radius: 3%;
-            border-top-right-radius: 3%;
             border-bottom: 1px solid #e2e2e2;
             border-right: 1px solid #e2e2e2;
             border-left: 1px solid #e2e2e2;
@@ -537,8 +550,8 @@
                 border-left: 1px solid $mac-navbar-style-border-color-description-models-about-us;
                 background-color: #f1f1f1;
                 position: absolute;
-                top: 0px;
-                border-radius: 5px 5px 0px 0px;
+                top: 0;
+                border-radius: 5px 5px 0 0;
               }
             }
             @media (max-width: 384px) {
@@ -552,8 +565,8 @@
                 border-left: 1px solid $mac-navbar-style-border-color-description-models-about-us;
                 background-color: $mac-navbar-style-background-color-description-models-about-us;
                 position: absolute;
-                top: 0px;
-                border-radius: 5px 5px 0px 0px;
+                top: 0;
+                border-radius: 5px 5px 0 0;
               }
             }
             .card-image::after{
@@ -583,6 +596,7 @@
 
   // project showcase styles
   #project-showcase{
+    background-color: $bg-section-header-projectshowcase-menustyle-variety;
     .scroll-ball-project-case{
       z-index: 0;
       transition: transform 1.3s cubic-bezier(.2, 1, .2, 1),-webkit-transform 1.3s cubic-bezier(.2, 1, .2, 1);
@@ -610,6 +624,7 @@
 
   // about us styles
   #about-us{
+    background-color: $bg-description-aboutus-feature;
     .container{
       .about-us-text{
         margin-right: 0;
@@ -625,7 +640,7 @@
           padding-left: 30px;		
           .demo-card{
             border: 0;
-            display: flex;
+            @include flex-display;
             position: relative;
             .card-img{
               transition: transform .7s cubic-bezier(.2, 1, .2, 1),-webkit-transform .7s cubic-bezier(.2, 1, .2, 1);
@@ -649,7 +664,7 @@
             .card-img::before{
               content: "";
               width: 100%;
-              left: 0px;
+              left: 0;
               height: 14px;
               border-right: 1px solid $mac-navbar-style-border-color-description-models-about-us;
               border-top: 1px solid $mac-navbar-style-border-color-description-models-about-us;
@@ -657,7 +672,7 @@
               background-color: $mac-navbar-style-background-color-description-models-about-us;
               position: absolute;
               top: 0;
-              border-radius: 5px 5px 0px 0px;
+              border-radius: 5px 5px 0 0;
             }
             .card-img::after{
               content: "";
@@ -687,7 +702,7 @@
               background-color: $mac-navbar-style-background-color-description-models-about-us;
               position: absolute;
               top: 0;
-              border-radius: 5px 5px 0px 0px;
+              border-radius: 5px 5px 0 0;
             }
           }
         }
@@ -698,6 +713,7 @@
 
   // menu style styles
   #menu-style{
+    background-color: $bg-section-header-projectshowcase-menustyle-variety;
     .container{
       .row{
         .slider{
@@ -707,7 +723,7 @@
               .demo-card{
                 border: 0;
                 width: 300px;
-                display: flex;
+                @include flex-display;
                 position: relative;
                 .card-img{
                   transition: transform .7s cubic-bezier(.2, 1, .2, 1),-webkit-transform .7s cubic-bezier(.2, 1, .2, 1);
@@ -725,13 +741,13 @@
                     font-size: 1.5rem;
                     display: block;
                     margin-top: 28px;
-                    margin-bottom: 0px;
+                    margin-bottom: 0;
                   }
                 }
                 .card-img::before{
                   content: "";
                   width: 99.8%;
-                  left: 0px;
+                  left: 0;
                   height: 14px;
                   border-right: 1px solid rgba(0, 0, 0, 0.175);
                   border-top: 1px solid rgba(0, 0, 0, 0.175);
@@ -739,7 +755,7 @@
                   background-color: $mac-navbar-style-background-color-project-demo-menu-style;
                   position: absolute;
                   top: -13px;
-                  border-radius: 5px 5px 0px 0px;
+                  border-radius: 5px 5px 0 0;
                 }
                 .card-img::after{
                   content: "";
@@ -782,6 +798,7 @@
 
   // responsive description styles
   #responsive-description{
+    background-color: $bg-fully-responsive;
     .container{
       .row{
         @media screen and (max-width: 1024px){
@@ -794,6 +811,7 @@
           }
           .responsive-description-detail{
             .detail{
+              color: $default-text-detail-colors;
               text-align: start;
               line-height: 26px;
               margin-bottom: 12px;
@@ -808,6 +826,7 @@
 
   // themebau features styles
   #themebau-features{
+    background-color: $bg-description-aboutus-feature;
     .container{
       .row{
         margin-top: -60px !important;
@@ -817,12 +836,12 @@
           .feature{
             position: relative;
             .feature-icon{
-              display: flex;
+              @include flex-display;
               justify-content: center;
               height: 70px;
               align-items: center;
               margin-right: 30px;
-              svg:nth-child(2){
+              img:nth-child(2){
                 position: absolute;
               }
             }
@@ -844,36 +863,37 @@
       }
     }
   }
-  // themebau features syules
+  // themebau features styles
 
-  // themebau varity styles
-  #themebau-varity{
+  // themebau variety styles
+  #themebau-variety{
+    background-color: $bg-section-header-projectshowcase-menustyle-variety;
     line-height: 27px;
-    .scroll-ball-varity{
+    .scroll-ball-variety{
       z-index: 0;
       transition: transform 1.3s cubic-bezier(0.2, 1, 0.2, 1), -webkit-transform 1.3s cubic-bezier(0.2, 1, 0.2, 1);
     }
     .container{
       .row{
         margin-right: 0 !important;
-        .themebau-varity-col *{
+        .themebau-variety-col *{
           transform: translate(0, 0);
           font-size: 16px;
         }
-        .themebau-varity-col{
+        .themebau-variety-col{
           padding-left: 30px;
           padding-top: 20px;
-          .themebau-varity-item{
+          .themebau-variety-item{
             margin-top: 25px !important;
             margin-left: -20px;
-            .varity-icon{
+            .variety-icon{
               padding: 0;
               padding-left: 20px !important;
             }
-            .varity-text{
+            .variety-text{
               padding: 0;
               padding-left: 20px !important;
-              color: $varity-item-text-color;
+              color: $variety-item-text-color;
               h6{
                 line-height: 27px;
               }
@@ -881,14 +901,14 @@
           }
         }
       }
-      .bau-varity-footer{
+      .bau-variety-footer{
         font-weight: 500;
         font-size: 18px;
         margin-left: 0;
       }
     }
   }
-  // themebau varity styles
+  // themebau variety styles
 }
 // site main container
 
@@ -907,7 +927,7 @@ footer{
         height: 100%;
         .float-img-link{
           padding-top: 30px !important;
-          display: flex;
+          @include flex-display;
           .float-img{
             transition: transform .2s ease-out, -webkit-transform .2s ease-out, opacity .3s ease-in-out;
             margin-left: -115px;
@@ -931,8 +951,7 @@ footer{
         }
       }
       .arrow-icon{
-        padding: 0;
-        padding-top: 30px;
+        padding: 30px 0 0 0;
         a{
           padding: 0;
           svg{
@@ -1001,7 +1020,7 @@ footer{
         .navbar-nav{
           .nav-item{
             .nav-link{
-              display: flex;
+              @include flex-display;
               padding: 3px 0;
               width: 100%;
               .link-text{
@@ -1068,7 +1087,7 @@ footer{
     .slider-img{
       width: 220px !important;
       .demo-card{
-        width: 220px Im !important;
+        width: 220px !important;
       }
     }
   }
@@ -1093,7 +1112,7 @@ footer{
     }
   }
 }
-@media screen and (max-width: 800){
+@media screen and (max-width: 800px){
   .slider-indicator-menu-style{
     .indicator-line{
       width: 180.224px !important;

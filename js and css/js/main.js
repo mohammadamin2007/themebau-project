@@ -14,7 +14,7 @@ if(document.body.scrollTop <=  600) {
 mainNAVLinks.forEach(function (item) {
     item.addEventListener("mouseenter", () => {
         for(let i = 0; i < mainNAVLinks.length; i++) {
-            if(mainNAVLinks.item(i) != item) {
+            if(mainNAVLinks.item(i) !== item) {
                 mainNAVLinks.item(i).style.color = "#6e6d6d"
             } else {
                 navLinkNOTChangeColor = i
@@ -23,7 +23,7 @@ mainNAVLinks.forEach(function (item) {
     })
     item.addEventListener("mouseleave", () => {
         for(let i = 0; i < mainNAVLinks.length; i++) {
-            if(mainNAVLinks.item(i) != item) {
+            if(mainNAVLinks.item(i) !== item) {
                     mainNAVLinks.item(i).style.color = "white"
             } else {
                 navLinkNOTChangeColor = i
@@ -34,7 +34,7 @@ mainNAVLinks.forEach(function (item) {
 mainDropMenus.forEach(function (it) {
     it.addEventListener("mouseenter", () => {
         for(let i = 0; i < mainNAVLinks.length; i++) {
-            if(mainNAVLinks.item(i) != mainNAVLinks.item(navLinkNOTChangeColor)) {
+            if(mainNAVLinks.item(i) !== mainNAVLinks.item(navLinkNOTChangeColor)) {
                 mainNAVLinks.item(i).style.color = "#6e6d6d"
             } else {
                 navLinkNOTChangeColor = i
@@ -43,7 +43,7 @@ mainDropMenus.forEach(function (it) {
     })
     it.addEventListener("mouseleave", () => {
         for(let i = 0; i < mainNAVLinks.length; i++) {
-            if(mainNAVLinks.item(i) != mainNAVLinks.item(navLinkNOTChangeColor)) {
+            if(mainNAVLinks.item(i) !== mainNAVLinks.item(navLinkNOTChangeColor)) {
                     mainNAVLinks.item(i).style.color = "white"
             } else {
                 navLinkNOTChangeColor = i
@@ -54,7 +54,7 @@ mainDropMenus.forEach(function (it) {
 dropMenusONSide.forEach(function (ite) {
     ite.addEventListener("mouseenter", () => {
         for(let i = 0; i < dropMenusONSide.length; i++) {
-            if(dropMenusONSide.item(i) == ite) {
+            if(dropMenusONSide.item(i) === ite) {
                 dropLinkPUTColor = i
                 break
             }
@@ -63,7 +63,7 @@ dropMenusONSide.forEach(function (ite) {
     })
     ite.addEventListener("mouseleave", () => {
         for(let i = 0; i < dropMenusONSide.length; i++) {
-            if(dropMenusONSide.item(i) != ite) {
+            if(dropMenusONSide.item(i) !== ite) {
                 dropLinkPUTColor = i
                 break
             }
@@ -199,15 +199,15 @@ fullNavbarTogglers[0].addEventListener("mousedown", function () {
         getFullNavbar.classList.remove("opacity-0")
         getFullNavbar.classList.add("opacity-100")
         getFullNavbar.classList.remove("z-index-n1")
-        fullNavbarCloseTooglerLines[0].style.transform = "rotate(-45deg) translateX(-9.5px)"
-        fullNavbarCloseTooglerLines[1].classList.add("opacity-0")
-        fullNavbarCloseTooglerLines[2].style.transform = "rotate(45deg) translateX(-10.5px) translateY(-2px)"
+        fullNavbarCloseTogglerLines[0].style.transform = "rotate(-45deg) translateX(-9.5px)"
+        fullNavbarCloseTogglerLines[1].classList.add("opacity-0")
+        fullNavbarCloseTogglerLines[2].style.transform = "rotate(45deg) translateX(-10.5px) translateY(-2px)"
     }, 20)
 })
 fullNavbarTogglers[1].addEventListener("mousedown" , function () {
-    fullNavbarCloseTooglerLines[0].style.transform = "translateX(-9.5px)"
-    fullNavbarCloseTooglerLines[1].classList.remove("opacity-0")
-    fullNavbarCloseTooglerLines[2].style.transform = "translateX(-10.5px)"
+    fullNavbarCloseTogglerLines[0].style.transform = "translateX(-9.5px)"
+    fullNavbarCloseTogglerLines[1].classList.remove("opacity-0")
+    fullNavbarCloseTogglerLines[2].style.transform = "translateX(-10.5px)"
     setTimeout(function(){
         getFullNavbar.classList.remove("opacity-100")
         getFullNavbar.classList.add("opacity-0")
@@ -221,7 +221,7 @@ fullNavbarTogglers[1].addEventListener("mousedown" , function () {
 fullNavbarLinks.forEach(function (ite3) {
     ite3.addEventListener("mouseenter", () => {
         for(let i = 0; i < fullNavbarLinks.length; i++) {
-            if(fullNavbarLinks.item(i) != ite3) {
+            if(fullNavbarLinks.item(i) !== ite3) {
                 fullNavbarLinks.item(i).style.color = "#6e6d6d"
             } else {
                 navLinkNOTChangeColor = i
@@ -230,7 +230,7 @@ fullNavbarLinks.forEach(function (ite3) {
     })
     ite3.addEventListener("mouseleave", () => {
         for(let i = 0; i < fullNavbarLinks.length; i++) {
-            if(fullNavbarLinks.item(i) != ite3) {
+            if(fullNavbarLinks.item(i) !== ite3) {
                     fullNavbarLinks.item(i).style.color = "white"
             } else {
                 navLinkNOTChangeColor = i
@@ -242,7 +242,7 @@ fullNavbarLinks.forEach(function (ite3) {
 socialMediaLinks.forEach(function (ite4) {
     ite4.addEventListener("mouseenter", () => {
         for(let i = 0; i < socialMediaLinks.length; i++) {
-            if(socialMediaLinks.item(i) != ite4) {
+            if(socialMediaLinks.item(i) !== ite4) {
                 socialMediaLinks.item(i).style.color = "#6e6d6d"
             } else {
                 navLinkNOTChangeColor = i
@@ -251,7 +251,7 @@ socialMediaLinks.forEach(function (ite4) {
     })
     ite4.addEventListener("mouseleave", () => {
         for(let i = 0; i < socialMediaLinks.length; i++) {
-            if(socialMediaLinks.item(i) != ite4) {
+            if(socialMediaLinks.item(i) !== ite4) {
                 socialMediaLinks.item(i).style.color = "white"
             } else {
                 navLinkNOTChangeColor = i
@@ -262,7 +262,7 @@ socialMediaLinks.forEach(function (ite4) {
 fullNavbarLinksWithIcon.forEach(function (ite5) {
     ite5.addEventListener("click", () => {
         for(let i = 0; i < fullNavbarLinksWithIcon.length; i++) {
-            if(fullNavbarLinksWithIcon.item(i) == ite5){
+            if(fullNavbarLinksWithIcon.item(i) === ite5){
                 if(fullNavbarLinksIcon.item(i).style.transform === "rotate(0deg)") {
                     fullNavbarLinksIcon.item(i).style.transform = "rotate(90deg)"
                 } else {
@@ -276,7 +276,7 @@ fullNavbarLinksWithIcon.forEach(function (ite5) {
 fullNavbarCollapseINCollapse.forEach(function (ite6){
     ite6.addEventListener("mouseenter", () => {
         for(let i = 0; i < fullNavbarCollapseINCollapse.length; i++) {
-            if(fullNavbarCollapseINCollapse.item(i) == ite6){
+            if(fullNavbarCollapseINCollapse.item(i) === ite6){
                 fullNavbarCollapsesToggler.item(i).classList.add("text-white")
                 break
             }
@@ -284,7 +284,7 @@ fullNavbarCollapseINCollapse.forEach(function (ite6){
     })
     ite6.addEventListener("mouseleave", () => {
         for(let i = 0; i < fullNavbarCollapseINCollapse.length; i++) {
-            if(fullNavbarCollapseINCollapse.item(i) == ite6){
+            if(fullNavbarCollapseINCollapse.item(i) === ite6){
                 fullNavbarCollapsesToggler.item(i).classList.remove("text-white")
                 break
             }
@@ -305,7 +305,7 @@ function createHeaderBoxes(imgPATH, imgAlt, textHeader, parentSelector){
     parentLINK.style.transitionDuration = "500ms"
     parentLINK.style.transitionDelay = transitiondelay + "ms"
     time += 1
-    if(time % 3 == 0) {
+    if(time % 3 === 0) {
         transitiondelay = 100
     } else {
         transitiondelay += 50
@@ -322,7 +322,7 @@ function createHeaderBoxes(imgPATH, imgAlt, textHeader, parentSelector){
     newIMG.alt = imgAlt
 
     let footerTEXT = document.createElement("span")
-    footerTEXT.classList = "text-white h5 card-title"
+    footerTEXT.classList = "default-text-color-white h5 card-title"
     footerTEXT.textContent = textHeader
 
     footerDIV.appendChild(footerTEXT)
@@ -336,15 +336,17 @@ headerBOXES.forEach(function (item) {
     createHeaderBoxes(item.imgPATH, item.imgAlt, item.textHeader, item.parentSelector)
 })
 // header boxes
+
 // description
-function logColor(pathData) {
-    peresentBoxes.forEach((item) => {
-        if(item.pathData == pathData) {
+function logColor(pathIMG) {
+    presentBoxes.forEach((item) => {
+        if(item.pathIMG === pathIMG) {
             console.log(item.pathColor)
         }
     })
+    return 0
 }
-function createDescriptionBoxes(pathData, pathColor, parentSelector, transitiondelay) {
+function createDescriptionBoxes(pathIMG, pathColor, parentSelector, transitiondelay) {
     let parentDIV = document.createElement("div")
     parentDIV.classList = "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 bau-description-layout show-on-scroll opacity-0"
     parentDIV.style.transform = "translateY(20px)"
@@ -353,47 +355,37 @@ function createDescriptionBoxes(pathData, pathColor, parentSelector, transitiond
 
     let parentLINK = document.createElement("a")
     parentLINK.style = "cursor: pointer"
-    parentLINK.setAttribute("onclick", "logColor('" + pathData + "')")
+    parentLINK.setAttribute("onclick", "logColor('" + pathIMG + "')")
     parentLINK.classList = "bau-description-svg card demo-card"
     
     let newSpan = document.createElement("span")
     newSpan.classList = "p-18 card-image d-flex align-self-center"
 
-    let newSVG = document.createElement("svg")
-    newSVG.setAttribute("width", 134)
-    newSVG.setAttribute("height", 109)
-    newSVG.setAttribute("viewBox", "0 0 134 109")
-    newSVG.setAttribute("fill", "none")
-    newSVG.setAttribute("xmls", "http://www.w3.org/2000/svg")
+    let newIMG = document.createElement("img")
+    newIMG.src = pathIMG
+    newIMG.alt = "layout"
 
-    let newPATH = document.createElement("path")
-    newPATH.setAttribute("fill-rule", "evenodd")
-    newPATH.setAttribute("clip-rule", "evenodd")
-    newPATH.setAttribute("d", pathData)
-    newPATH.setAttribute("fill", pathColor)
-    
-    newSVG.appendChild(newPATH)
-    newSpan.appendChild(newSVG)
+    newSpan.appendChild(newIMG)
     parentLINK.appendChild(newSpan)
     parentDIV.appendChild(parentLINK)
     document.querySelector(parentSelector).appendChild(parentDIV)
 }
-peresentBoxes.forEach((item) => {
-    createDescriptionBoxes(item.pathData, item.pathColor, item.parentSelector, item.transitiondelay)
+presentBoxes.forEach((item) => {
+    createDescriptionBoxes(item.pathIMG, item.pathColor, item.parentSelector, item.transitiondelay)
 })
 // description
 
 // feature
 transitiondelay = 100
 time = 0
-function createFeatureBoxes(iconPATH, iconWidth, iconHeight, titleTEXT, detailTEXT, parentSelector) {
+function createFeatureBoxes(iconPath, titleTEXT, detailTEXT, parentSelector) {
     let parentDIV = document.createElement("div")
     parentDIV.classList = "col-md-6 col-lg-4 show-on-scroll opacity-0"
     parentDIV.style.transform = "translateY(20px)"
     parentDIV.style.transitionDuration = "500ms"
     parentDIV.style.transitionDelay = transitiondelay + "ms"
     time += 1
-    if(time % 3 == 0) {
+    if(time % 3 === 0) {
         transitiondelay = 100
     } else {
         transitiondelay += 100
@@ -405,33 +397,15 @@ function createFeatureBoxes(iconPATH, iconWidth, iconHeight, titleTEXT, detailTE
     let iconBox = document.createElement("div")
     iconBox.classList = "feature-icon"
 
-    let bigIcon = document.createElement("svg")
-    bigIcon.setAttribute("width", 71)
-    bigIcon.setAttribute("height", 70)
-    bigIcon.setAttribute("viewBox", "0 0 71 70")
-    bigIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg")
-    bigIcon.setAttribute("fill", "none")
-    let bigIconPATH = document.createElement("path")
-    bigIconPATH.setAttribute("d", "M5.18911 17.7887L35 0.57735L64.8109 17.7887V52.2113L35 69.4226L5.18911 52.2113V17.7887Z")
-    bigIcon.appendChild(bigIconPATH)
-    bigIconPATH = document.createElement("path")
-    bigIconPATH.setAttribute("d", "M18.2867 65.3084L1.0754 35.4976L18.2867 5.68667H52.7094L69.9207 35.4976L52.7094 65.3084H18.2867Z")
-    bigIcon.appendChild(bigIconPATH)
+    let bigIcon = document.createElement("img")
+    bigIcon.alt = "hexagon"
+    bigIcon.src = "./assets/hexagon.svg"
     iconBox.appendChild(bigIcon)
 
-    let smallIcon = document.createElement("svg")
-    smallIcon.setAttribute("width", iconWidth)
-    smallIcon.setAttribute("height", iconHeight)
-    smallIcon.setAttribute("viewBox", "0 0 " + iconWidth + " " + iconHeight)
-    smallIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+    let smallIcon = document.createElement("img")
+    smallIcon.alt = "icon"
+    smallIcon.src = iconPath
     iconBox.appendChild(smallIcon)
-    let smallIconPath = document.createElement("path")
-    smallIconPath.setAttribute("d", iconPATH)
-    smallIconPath.setAttribute("stroke", "currentcolor")
-    smallIconPath.setAttribute("stroke-width", 1.5)
-    smallIconPath.setAttribute("stroke-linecap", "round")
-    smallIconPath.setAttribute("stroke-linejoin", "round")
-    smallIcon.appendChild(smallIconPath)
 
     let textBox = document.createElement("div")
     textBox.classList = "feature-description"
@@ -452,9 +426,10 @@ function createFeatureBoxes(iconPATH, iconWidth, iconHeight, titleTEXT, detailTE
     document.querySelector(parentSelector).appendChild(parentDIV)
 }
 features.forEach((item) => {
-    createFeatureBoxes(item.d, item.width, item.height, item.title, item.detail, item.parentSelector)
+    createFeatureBoxes(item.iconPath, item.title, item.detail, item.parentSelector)
 })
 // feature
+
 // all scrolling changes
 window.addEventListener("load", function () {
     let elementShouldAnimated = document.querySelectorAll(".show-on-scroll")
@@ -488,7 +463,7 @@ window.addEventListener("load", function () {
         }
         headerScrollBall.style.transform = "translate(0px, -" + window.scrollY / 6+ "px)"
         projectShowCaseScrollBall.style.transform = "translate(0px, " + window.scrollY / 20 + "px)"
-        varityScrollBall.style.transform = "translate(0px, " + window.scrollY / 20 + "px)"
+        varietyScrollBall.style.transform = "translate(0px, " + window.scrollY / 20 + "px)"
         elementShouldAnimated.forEach((item) => {
             if(item.getBoundingClientRect().top <= window.innerHeight - 10 && item.getBoundingClientRect().top >= -20) {
                 item.style.transform = "translateY(0px)"

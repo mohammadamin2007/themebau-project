@@ -8,3 +8,9 @@
     }
   }
 }
+
+@mixin flex-display{
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+}
