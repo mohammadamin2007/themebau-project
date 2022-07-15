@@ -87,9 +87,6 @@ if(localStorage.getItem("navbar-last-status") !== null) {
     }
 }
 // hide - navbar - enter
-// color - black - navbar - enter
-
-// color - black - navbar -enter
 
 // footer - float - image
 footerLink.addEventListener("mouseenter", () => {
@@ -461,7 +458,11 @@ window.addEventListener("load", function () {
         } else {
             localStorage.setItem("navbar-last-status", "show")
         }
-        headerScrollBall.style.transform = "translate(0px, -" + window.scrollY / 6+ "px)"
+        if(window.scrollY < 50) {
+            headerScrollBall.style.transform = "translate(0px, -14px)"
+        } else {
+            headerScrollBall.style.transform = "translate(0px, -" + window.scrollY / 6 + "px)"
+        }
         projectShowCaseScrollBall.style.transform = "translate(0px, " + window.scrollY / 20 + "px)"
         varietyScrollBall.style.transform = "translate(0px, " + window.scrollY / 20 + "px)"
         elementShouldAnimated.forEach((item) => {
@@ -474,3 +475,20 @@ window.addEventListener("load", function () {
     }
 })
 // all scrolling changes
+
+// responsive slider
+if(window.innerWidth < 588) {
+    windowLastWidth = window.innerWidth
+    sliderIMG.forEach((item) => {
+        item.style.width = window.innerWidth - 90
+    })
+}
+window.addEventListener("resize", () => {
+    if(window.innerWidth < 588) {
+        windowLastWidth = window.innerWidth
+        sliderIMG.forEach((item) => {
+            item.style.width = window.innerWidth - 90
+        })
+    }
+})
+// responsive slider

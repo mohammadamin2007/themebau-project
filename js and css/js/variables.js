@@ -15,11 +15,13 @@ let windowScrollY = window.scrollY
 let navLinkNOTChangeColor = 0
 let dropLinkPUTColor = 0
 // navbar
+
 // scroll - balls
 let headerScrollBall = document.querySelector(".scroll-ball-img")
 let projectShowCaseScrollBall = document.querySelector(".scroll-ball-project-case")
 let varietyScrollBall = document.querySelector(".scroll-ball-variety")
 // scroll - balls
+
 // slider - project - case
 // let slider_body_project_case = document.querySelector(".slider-body")
 // let pic_positions_project_case = [0, -570, -970, -1540, -1880]
@@ -39,15 +41,18 @@ let varietyScrollBall = document.querySelector(".scroll-ball-variety")
 // let transform_slider_menu_style = slider_body_menu_style.style.transform.replace(/[^\d.]/g, '')
 // let indicator_menu_style = document.querySelector("#menu-style .indicator-line")
 // slider - menu - style
+
 // footer - float - img
 let footerFloatIMG = document.querySelector(".float-img")
 let footerLink = document.querySelector(".footer-link")
 // footer - float - img
+
 // fullscreen navbar
 let fullNavbarTogglers = document.querySelectorAll(".navbar-toggler-replace")
 let getFullNavbar = document.querySelector(".full-screen-navbar")
 let fullNavbarCloseTogglerLines = document.querySelectorAll(".full-screen-navbar .navbar-toggler-line")
 // fullscreen navbar
+
 // header boxes
 let transitiondelay = 100
 let time = 0
@@ -120,6 +125,7 @@ let headerBOXES = [
     }
 ]
 // header boxes
+
 // present unique
 let presentBoxes = [
     el1 = {
@@ -160,6 +166,7 @@ let presentBoxes = [
     }
 ]
 // present unique
+
 // features
 let features = [
     el1 = {
@@ -200,3 +207,8 @@ let features = [
     }
 ]
 // features
+
+// responsive slider project showcase
+let sliderIMG = document.querySelectorAll(".slider-img")
+let windowLastWidth = window.innerWidth;
+// responsive slider project showcase
